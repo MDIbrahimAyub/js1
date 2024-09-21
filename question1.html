@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Type Checker</title>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Character Type Checker</h2>
+        <input type="text" id="charInput" maxlength="1" placeholder="Enter a character">
+        <button onclick="checkCharType()">Check Type</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkCharType() {
+            const input = document.getElementById("charInput").value;
+            const resultElement = document.getElementById("result");
+
+            if (input.length !== 1) {
+                resultElement.textContent = "Please enter exactly one character.";
+                return;
+            }
+
+            const charCode = input.charCodeAt(0);
+
+            if (charCode >= 48 && charCode <= 57) {
+                resultElement.textContent = `'${input}' is a number.`;
+            } else if (charCode >= 65 && charCode <= 90) {
+                resultElement.textContent = `'${input}' is an uppercase letter.`;
+            } else if (charCode >= 97 && charCode <= 122) {
+                resultElement.textContent = `'${input}' is a lowercase letter.`;
+            } else {
+                resultElement.textContent = `'${input}' is not a number or a letter.`;
+            }
+
+            // Display ASCII code for additional information
+            resultElement.textContent += ` (ASCII code: ${charCode})`;
+        }
+    </script>
+</body>
+</html>

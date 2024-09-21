@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-based Greeting</title>
+  
+</head>
+<body>
+    <div class="container">
+        <h2>Time-based Greeting</h2>
+        <input type="text" id="timeInput" placeholder="Enter time (e.g., 1900)">
+        <button onclick="getGreeting()">Get Greeting</button>
+        <div id="greeting"></div>
+    </div>
+
+    <script>
+        function getGreeting() {
+            const timeInput = document.getElementById("timeInput").value;
+            const greetingElement = document.getElementById("greeting");
+
+            // Validate input
+            if (!/^\d{4}$/.test(timeInput)) {
+                greetingElement.textContent = "Please enter a valid 4-digit time (e.g., 1900 for 7:00 PM)";
+                return;
+            }
+
+            const hours = parseInt(timeInput.substring(0, 2));
+            const minutes = parseInt(timeInput.substring(2));
+
+            // Validate hours and minutes
+            if (hours > 23 || minutes > 59) {
+                greetingElement.textContent = "Invalid time. Hours should be 00-23 and minutes should be 00-59.";
+                return;
+            }
+
+            let greeting;
+
+            if (hours >= 5 && hours < 12) {
+                greeting = "Good morning";
+            } else if (hours >= 12 && hours < 18) {
+                greeting = "Good afternoon";
+            } else if (hours >= 18 && hours < 22) {
+                greeting = "Good evening";
+            } else {
+                greeting = "Good night";
+            }
+
+            const formattedTime = formatTime(hours, minutes);
+            greetingElement.textContent = `${greeting}! The time is ${formattedTime}.`;
+        }
+
+        function formatTime(hours, minutes) {
+            const period = hours >= 12 ? "PM" : "AM";
+            hours = hours % 12 || 12; // Convert to 12-hour format
+            return `${hours}:${minutes.toString().padStart(2, '0')} ${period}`;
+        }
+    </script>
+</body>
+</html>

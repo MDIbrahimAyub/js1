@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Check On of the Greater Number</h1>
+    <input type="text" placeholder="First Number" id="input1">
+    <br>
+    <input type="text" placeholder="Second Number" id="input2">
+    <br>
+    <button onclick="check()">Check Greater</button>
+    <div class="result"></div>
+
+
+
+    <script>
+        function check(){
+        let inp1 = document.querySelector("#input1").value;  
+        let inp2 = document.querySelector("#input2").value;  
+        let result1 = document.querySelector(".result")
+
+        if(inp1 > inp2){
+            result1.innerText = Number(inp1) + " is the Greater Number"
+        }
+        else if(inp1 < inp2){
+            result1.innerText = Number(inp2) + " is the Greater Number"
+        }
+        else if(inp1 === inp2){
+            result1.innerText = "Both Numbers are Equal"
+        }
+    }
+    </script>
+</body>
+</html>

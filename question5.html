@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validation</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Password Validation</h2>
+        <input type="password" id="passwordInput" placeholder="Enter your password">
+        <button onclick="validatePassword()">Submit</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        // Store correct password in a JS variable
+        const correctPassword = "secretpassword123";
+
+        function validatePassword() {
+            // Get the user's entered password
+            const userPassword = document.getElementById("passwordInput").value;
+            const messageElement = document.getElementById("message");
+
+            // Check if user has entered password
+            if (userPassword === "") {
+                messageElement.style.color = "red";
+                messageElement.textContent = "Please enter your password";
+            } 
+            // Check if both passwords are the same
+            else if (userPassword === correctPassword) {
+                messageElement.style.color = "green";
+                messageElement.textContent = "Correct! The password you entered matches the original password";
+            } else {
+                messageElement.style.color = "red";
+                messageElement.textContent = "Incorrect password";
+            }
+        }
+    </script>
+</body>
+</html>

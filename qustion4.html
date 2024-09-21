@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Check Your Letter is Vowel or Not</h1>
+    <input type="text" placeholder="First Number" id="input1">
+    <br>
+    <br>
+    <button onclick="vowel()">Check Vowel</button>
+    <br>
+    <br>
+    <div class="result"></div>
+
+
+
+    <script>
+        function vowel(){
+            let inp1 = document.querySelector("#input1").value;  
+            let result1 = document.querySelector(".result")
+            let a = "a";
+            let e = "e";
+            let i = "i";
+            let o = "o";
+            let u = "u";
+            if(inp1 === a){
+                result1.innerText = inp1 + " is a vowel"
+            }
+            else if(inp1 === e){
+                result1.innerText = inp1 + " is a vowel"
+            }
+            else if(inp1 === i){
+                result1.innerText = inp1 + " is a vowel"
+            }
+            else if(inp1 === o){
+                result1.innerText = inp1 + " is a vowel"
+            }
+            else if(inp1 === u){
+                result1.innerText = inp1 + " is a vowel"
+            }
+            else{
+                result1.innerText = "It is a Consonants"
+            }
+
+        }
+    </script>
+</body>
+</html>
